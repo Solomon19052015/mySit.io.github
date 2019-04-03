@@ -24,6 +24,11 @@ window.onload = function() {
   const arrayScreen = Array.prototype.slice.call(collectScreen, 0);
 
   let counter = 0;
+  //УСТАНОВКА ВЫСОТЫ КОНТАИНЕРА
+  container.style.height = heightUser + "px";
+  for(let i =0; i <arrayScreen.length;i++ ){
+    arrayScreen[i].style.height = heightUser + "px";
+  }
 
   window.addEventListener("resize", resizeHeandler);
 
