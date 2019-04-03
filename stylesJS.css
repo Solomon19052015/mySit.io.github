@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@font-face {
+  font-family: "Muller Narrow";
+  src: url("fonts/MullerNarrow-ExtraBold.ttf");
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Muller Narrow";
+  color: rgb(100, 93, 93);
+  font-weight: 100;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.active{
+  z-index: 1;
+}
+
+.shadow{
+  z-index: 0;
+}
+
+.screen{
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+
+}
+
+.bg{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow:column wrap;
+  position: relative;
+  z-index: 2;
+
+
+}
+
+button{
+position: absolute;
+top: 60%;
+z-index: 99;
+height: 40px;
+
+}
+
+.next{
+left: 60%;
+
+}
+
+.back{
+  left: 0%;
+}
+
+.bg .bgDiv{
+   position: relative;
+  
+   transform: scale(0) rotate(180deg); 
+   opacity: 0;
+    border-radius: 100%; 
+  
+
+
+}
+
+.o .bgDiv{
+  transform: scale(1) rotate(0deg); 
+  opacity: 1;
+  border-radius: 0%;
+  transition-delay: 0.2s;
+
+}
+
+
+.bg .divKills{
+  transform: scale(0) rotate(180deg);
+  opacity: 0;
+   border-radius: 100%; 
+   transition:  all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
+ /*  animation: divKills 1s ease-in 0s 1 normal forwards; */
+
+}
+
+.bg .divNew{
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+  border-radius: 0%;
+  transition:  all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
+ /*  animation: divNew 1s ease-in 0s 1 normal forwards;*/
+} 
+
+
+
+
+.screen_1 {
+ 
+ }
+
+.screen_1  .bg1{
+  
+}
+
+.screen_1  .bg1 div{
+  background: rgb(192, 27, 27);
+}
+
+
+ .screen_1 .sect_cont1{
+
+ }
+
+
+.screen_2 {
+ 
+ }
+
+.screen_2  .bg2{
+ 
+}
+
+.screen_2  .bg2 div{
+  background: rgb(218, 199, 32);
+}
+
+
+ .screen_2 .sect_cont1{
+
+ }
+
+
+.screen_3 {
+ 
+ }
+
+.screen_3  .bg3{
+ 
+}
+
+.screen_3  .bg3 div{
+  background: rgb(42, 79, 202);
+}
+
+
+ .screen_3 .sect_cont1{
+
+ }
+
+.screen_4 {
+ 
+}
+
+.screen_4  .bg4{
+ 
+}
+
+.screen_4  .bg4 div{
+ background: rgb(65, 199, 39);
+}
+
+
+.screen_4 .sect_cont1{
+
+}
+
+
+.block{
+  width: 100%;
+  position: relative  ;
+  z-index: 99;
+  height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+
+  background: rgb(153, 153, 153);
+  overflow: hidden;
+}
+
+.block div{
+  background: #000;
+  flex:1 1 10%;
+  
+}
+
