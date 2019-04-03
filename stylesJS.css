@@ -1,204 +1,591 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-@font-face {
-  font-family: "Muller Narrow";
-  src: url("fonts/MullerNarrow-ExtraBold.ttf");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face{
+    font-family: 'Muller Narrow';
+    src: url('fonts/MullerNarrow-ExtraBold.ttf')
 }
+/*ДЛЯ ТЕЛЕФОНОВ*/
+@media handheld, only screen and (max-width: 560px), only screen and (max-device-width: 480px)  {
+   body .myStory, body .myWorks{
+       display: none;
+   }
+   body .linkMyStoryMobile, body .linkMyWorksMobile{
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: flex;
+       width: 90%;
+       height: 100px;
+       font-size: 18px;
+
+   }
+   body .linkMyStoryMobile{
+       margin-bottom: 20px;
+   }
+ 
+   body .bgShak{
+       animation-name: shakingMobile
+   }
+
+
+}
+
+@media (max-width: 950px){
+    body .container .Bg{
+        background-size: 150%;
+    }
+    body .primer .sect1_cont{
+        width: 90%;
+    }
+}
+
+@media (max-width: 750px) {
+  body .container .Bg {
+    background-size: 450%;
+    background-position: center;
+    -webkit-transition: all 0s ease;
+    transition: all 0s ease;
+    height: 110vh;
+   
+  }
+  body .primer{
+      height: 110vh;
+  }
+  body .primer .sect1_cont{
+      width: 100%;
+ 
+  }
+
+  body .sect1_cont h1{
+      font-size: 54px;
+      min-width: 360px;
+      margin: 80px 0 0;
+      text-align: center;
+  }
+  body .buttomChange{
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      min-width: 360px;
+  }
+  body .buttomChange h3{
+    font-size: 18px;
+  }
+  
+  body .myStory, body .myWorks{
+      margin-bottom: 30px;
+      width: 90%;
+      height: 80px;
+      
+  }
+ body .buttomChange .myStory .linkMyStory{
+     font-size: 16px;
+ }
+
+}
+
+
+  @media (max-width: 500px){
+    body .primer .sect1_cont h1{
+        font-size: 44px;
+       
+        
+    }
+  }
+  @media (max-width: 400px){
+    body .primer .sect1_cont h1{
+        margin-top: 40px;
+      
+    }
+
+  }
+
+
+
 
 body {
   padding: 0;
   margin: 0;
   font-family: "Muller Narrow";
-  color: rgb(100, 93, 93);
-  font-weight: 100;
+  color: #fff;
+  background: #000;
 }
 
-h1 {
+:root {
+  --main-posX: 10%;
+  --main-posY: 10%;
+  --colorBorder: rgba(121, 121, 121, 0.014);
+}
+.content{
+    width: 100%;
+    height: 100vh;
+
+}
+
+
+.container {
+  min-width: 360px;
+    z-index: 9;
+    width: 100%;
+    position: absolute;
+    
+}
+
+
+
+.container .hi .symb{
+    display: inline-block;
+    transition: all 1.5s cubic-bezier(0.8, 0.385, 0.12, 1);
+   
+    min-width: 10px;
+}
+
+.container .Bg {
+ position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: url(image/mountainsB.jpg) no-repeat;
+  background-size: 120%;
+  background-position: center;
+   -webkit-transition: all 5s cubic-bezier(0.2, 0.2, 0.2, 1);
+   transition: all 5s cubic-bezier(0.2, 0.2, 0.2, 1);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-position-x: var(--main-posX);
+  background-position-y: var(--main-posY);
+  z-index: 9;
+  -webkit-filter: brightness(0.6);
+          filter: brightness(0.6);
+  top:0;
+ 
+  
+}
+.bgShak{
+    animation: shaking 0.4s cubic-bezier(0.75, 1, 1, 1) 0s 1 alternate;
+}
+
+@keyframes shaking{
+0%{
+  background-size: 120%;
+}
+20%{
+    background-size: 123%;
+}
+40%{
+    background-size: 118%;
+}
+60%{
+    background-size: 125%;
+}
+80%{
+    background-size: 115%;
+}
+100%{
+    background-size: 120%;
+}
+}
+
+@keyframes shakingMobile{
+    0%{
+      background-size: 450%;
+    }
+    20%{
+        background-size: 463%;
+    }
+    40%{
+        background-size: 458%;
+    }
+    60%{
+        background-size: 445%;
+    }
+    80%{
+        background-size: 470%;
+    }
+    100%{
+        background-size: 450%;
+    }
+    }
+
+
+.primer{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 10;
+  top:0;
+}
+
+
+.primer .sect1_cont h3,p {
   padding: 0;
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #000;
+.primer .sect1_cont {
+  height: 80%;
+  width: 70%;
+  margin: 0 auto;
+  z-index: 11;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+      -ms-flex-flow:column nowrap;
+          flex-flow:column nowrap;
 }
 
-.container {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+.sect1_cont h1{
+    font-size: 70px;
+    font-weight: 600;
+    width: 90%;
+    min-width: 650px;
+    margin: 20px 0 0;
+    padding: 0;
+   
 }
 
-.active{
-  z-index: 1;
+.buttomChange{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 90%;
+    margin: 80px  auto 0;
+    min-width: 650px;
+    height: 400px;
 }
 
-.shadow{
-  z-index: 0;
+ .myStory,.myWorks, .linkMyStoryMobile, .linkMyWorksMobile {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    font-weight: 600;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+       -ms-flex-pack: center;
+           justify-content: center;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
+   background: -webkit-gradient(linear, left top, left bottom, from(rgba(73, 73, 73, 0.541)),to(rgba(61, 61, 61, 0)));
+   background: linear-gradient(to bottom, rgba(73, 73, 73, 0.541),rgba(61, 61, 61, 0));
+      cursor: pointer;
+      overflow: hidden;
+      font-family: "Roboto";
+      transition: all 1s cubic-bezier(1, 0.885, 0.32, 1.275);
+
+}
+.linkMyStoryMobile, .linkMyWorksMobile{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.897);
+    display: none;
 }
 
-.screen{
-  top: 0;
+
+.myStory h3, .myWorks h3{
+    position: absolute;
+   
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -webkit-transition: all 0.4s cubic-bezier(0.875, 0.885, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.875, 0.885, 0.32, 1)
+}
+
+.myStory:hover h3{
+    -webkit-transform: translateX(300%);
+            transform: translateX(300%)
+}
+
+.buttomChange .myStory .linkMyStory, .buttomChange .myWorks .linkMyWorks{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+     text-decoration: none;
+   z-index: 2;
+       border-top: 1px solid transparent; 
+   -webkit-transition: all 0.3s ease; 
+   transition: all 0.3s ease;
+    font-weight: 600;
+   font-size: 18px;
+   width: 100%;
+   height: 100%;
+   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.541)),to(rgba(53, 53, 53, 0.055)));
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.541),rgba(53, 53, 53, 0.055));
+}
+
+.myStory:hover .linkMyStory{
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    color: #fff;
+}
+
+.myStory .linkMyStory{
+   -webkit-transform: translateX(-300%);
+           transform: translateX(-300%);
+}
+
+/* 
+.myStory .linkMyStory:before, */ .myStory .linkMyStory:after, .myStory .linkMyStory span::before, .myStory .linkMyStory span::after,
+/* .myWorks .linkMyWorks:before, */ .myWorks .linkMyWorks:after, .myWorks .linkMyWorks span::before, .myWorks .linkMyWorks span::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 0px;
+    background: var(--colorBorder);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+       -webkit-box-shadow: 0px 0px 50px 3px rgba(255, 255, 255, 0.459);
+               box-shadow: 0px 0px 50px 3px rgba(255, 255, 255, 0.459);
+  
+}
+.myStory .linkMyStory:before,.myWorks .linkMyWorks:before{
+    bottom: 0;
+    left: 0;
+  
+}
+.myStory:hover .linkMyStory:before,.myWorks:hover .linkMyWorks:after{
+    width: 100%;
+}
+
+ .myStory .linkMyStory:after, .myWorks .linkMyWorks:after{
+     top:0;
+     right: 0;
+  }
+
+.myStory:hover .linkMyStory:after,.myWorks:hover .linkMyWorks:before{
+    width: 100%;
+} 
+
+.myStory .linkMyStory span,.myWorks .linkMyWorks span{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.myStory .linkMyStory span::before,.myWorks .linkMyWorks span::before{
+   width: 0px;
+   height: 0;
+   right: 0;
+   bottom: 0;
+   -webkit-transition-delay: 0s;
+           transition-delay: 0s;
+}
+
+.myStory .linkMyStory:hover span::before,.myWorks .linkMyWorks:hover span::before{
+    height: 100%;
+}
+
+.myStory .linkMyStory span::after,.myWorks .linkMyWorks span::after{
+    width: 0px;
+    height: 0;
+    left: 0;
+    top:0;
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+   }
+
+.myStory .linkMyStory:hover span::after,.myWorks .linkMyWorks:hover span::after{
+    height: 100%;
+}
+
+
+/*АНИМАЦИЯ МОИХ РАБОТ*/
+.myWorks:hover h3{
+    -webkit-transform: translateX(-300%);
+            transform: translateX(-300%)
+}
+
+.myWorks:hover .linkMyWorks{
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    color: #fff;
+}
+
+.myWorks .linkMyWorks{
+   -webkit-transform: translateX(300%);
+           transform: translateX(300%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ПРЕДЛОАДЕР */
+
+.load {
   width: 100%;
   height: 100vh;
   position: absolute;
-  overflow: hidden;
-
-}
-
-.bg{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-flow:column wrap;
-  position: relative;
-  z-index: 2;
-
-
-}
-
-button{
-position: absolute;
-top: 60%;
-z-index: 99;
-height: 40px;
-
-}
-
-.next{
-left: 60%;
-
-}
-
-.back{
-  left: 0%;
-}
-
-.bg .bgDiv{
-   position: relative;
-  
-   transform: scale(0) rotate(180deg); 
-   opacity: 0;
-    border-radius: 100%; 
-  
-
-
-}
-
-.o .bgDiv{
-  transform: scale(1) rotate(0deg); 
-  opacity: 1;
-  border-radius: 0%;
-  transition-delay: 0.2s;
-
-}
-
-
-.bg .divKills{
-  transform: scale(0) rotate(180deg);
-  opacity: 0;
-   border-radius: 100%; 
-   transition:  all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
- /*  animation: divKills 1s ease-in 0s 1 normal forwards; */
-
-}
-
-.bg .divNew{
-  transform: scale(1) rotate(0deg);
-  opacity: 1;
-  border-radius: 0%;
-  transition:  all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
- /*  animation: divNew 1s ease-in 0s 1 normal forwards;*/
-} 
-
-
-
-
-.screen_1 {
- 
- }
-
-.screen_1  .bg1{
-  
-}
-
-.screen_1  .bg1 div{
-  background: rgb(192, 27, 27);
-}
-
-
- .screen_1 .sect_cont1{
-
- }
-
-
-.screen_2 {
- 
- }
-
-.screen_2  .bg2{
- 
-}
-
-.screen_2  .bg2 div{
-  background: rgb(218, 199, 32);
-}
-
-
- .screen_2 .sect_cont1{
-
- }
-
-
-.screen_3 {
- 
- }
-
-.screen_3  .bg3{
- 
-}
-
-.screen_3  .bg3 div{
-  background: rgb(42, 79, 202);
-}
-
-
- .screen_3 .sect_cont1{
-
- }
-
-.screen_4 {
- 
-}
-
-.screen_4  .bg4{
- 
-}
-
-.screen_4  .bg4 div{
- background: rgb(65, 199, 39);
-}
-
-
-.screen_4 .sect_cont1{
-
-}
-
-
-.block{
-  width: 100%;
-  position: relative  ;
   z-index: 99;
-  height: 100vh;
-  display: flex;
-  flex-flow: row wrap;
-
-  background: rgb(153, 153, 153);
-  overflow: hidden;
-}
-
-.block div{
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
   background: #000;
-  flex:1 1 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  animation: loadB 0.8s ease 0.1s infinite alternate-reverse;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   
 }
 
+.load h2{
+    font-size: 26px;
+    font-weight: 100;
+    text-align: center;
+    padding: 20px;
+    border-radius: 2px;
+    position: relative;
+    color: rgba(255, 255, 255, 0);
+    text-shadow: 0px 0px 5px rgba(233, 233, 233, 0.411);
+    
+
+}
+
+
+.closeLoad,.closeH {
+  z-index: 0;
+  background: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+.kv {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.342);
+          box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.342);
+  z-index: 101;
+  background: #fff;
+  -webkit-transform: translateX(0px) rotate(0deg);
+          transform: translateX(0px) rotate(0deg);
+  -webkit-animation: kvAfter 1s cubic-bezier(1, 1, 1, 1) 0s infinite alternate;
+          animation: kvAfter 1s cubic-bezier(1, 1, 1, 1) 0s infinite alternate;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.kvClose {
+  opacity: 0;
+  z-index: 0;
+}
+
+@-webkit-keyframes kvAfter {
+  0% {
+    -webkit-transform: translate(-100px) rotate(0deg);
+            transform: translate(-100px) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translate(-50px) rotate(90deg);
+            transform: translate(-50px) rotate(90deg);
+  }
+  50% {
+    -webkit-transform: translate(0px) rotate(180deg);
+            transform: translate(0px) rotate(180deg);
+  }
+  75% {
+    -webkit-transform: translate(50px) rotate(270deg);
+            transform: translate(50px) rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: translate(100px) rotate(360deg);
+            transform: translate(100px) rotate(360deg);
+  }
+}
+
+@keyframes kvAfter {
+  0% {
+    -webkit-transform: translate(-100px) rotate(0deg);
+            transform: translate(-100px) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translate(-50px) rotate(90deg);
+            transform: translate(-50px) rotate(90deg);
+  }
+  50% {
+    -webkit-transform: translate(0px) rotate(180deg);
+            transform: translate(0px) rotate(180deg);
+  }
+  75% {
+    -webkit-transform: translate(50px) rotate(270deg);
+            transform: translate(50px) rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: translate(100px) rotate(360deg);
+            transform: translate(100px) rotate(360deg);
+  }
+}
+
+
+
+
+/* MYSTORY */

@@ -1,232 +1,267 @@
-window.onload = function() {
-  let widthUser = document.documentElement.clientWidth;
-  let  heightUser = document.documentElement.clientHeight;
+(function(func) {
+   let h = document.createElement("h2");
+  h.innerHTML = "ЗАГРУЗКА";
+  let load = document.createElement("div");
+  let kv = document.createElement("div");
+  document.body.insertBefore(load, document.body.firstChild);
+  load.insertBefore(kv, load.firstChild);
+  load.insertBefore(h, load.firstChild);
+  load.classList.add("load");
+  kv.classList.add("kv"); 
 
-  const bg1 = document.querySelector(".bg1");
-  const bg2 = document.querySelector(".bg2");
-  const bg3 = document.querySelector(".bg3");
-  const bg4 = document.querySelector(".bg4");
-  const screen_1 = document.querySelector(".screen_1");
-  const screen_2 = document.querySelector(".screen_2");
-  const screen_3 = document.querySelector(".screen_3");
-  const screen_4 = document.querySelector(".screen_4");
-  const container = document.querySelector(".container");
-  const kolUser = 10;
-  const kolUser2 = kolUser /2;
-  let kolDiv = null;
-  let kolDiv2 = null;
-  let screen1H = document.querySelector(".screen_1 .sect1_cont h1");
-  let screen2H = document.querySelector(".screen_2 .sect2_cont h1");
-  const nameAnimationUserScreen1 = ["divGo", "divGoBack"];
-  const nameAnimationUserScreen2 = ["divGoLeft", "divGoBackLeft"];
-  const collectScreen = document.querySelectorAll(".screen");
-  const arrayScreen = Array.prototype.slice.call(collectScreen, 0);
 
-  let counter = 0;
 
-  window.addEventListener("resize", resizeHeandler);
+  func();
+})(onloadDoc);
 
-  function resizeHeandler() {
-   let  widthUser = document.documentElement.clientWidth; 
-   let heightUser = document.documentElement.clientHeight;
-     changeSizeDiv(widthUser, heightUser, kolDiv);
-  }
+function onloadDoc() {
+  document.body.onload = function() {
+    //ЛОАДЕР
 
-  //ШИРИНА БЛОКА
-  function wDivBg(w, k) {
-    let width = w / k;
-    return width;
-  }
+     setTimeout(function() {
+      let load = document.querySelector(".load");
+      let kv = document.querySelector(".kv");
+      let h = document.querySelector(".load h2");
+      load.classList.add("closeLoad");
+      kv.classList.add("kvClose");
+      h.classList.add("closeH");
+    }, 1000); 
 
-  //ВЫСОТА БЛОКА
-  function hDivBg(h, k) {
-    let height = h / k;
-    return height;
-  }
+    let primer = document.querySelector(".primer");
+    let h = document.querySelector("h3");
+    let mainPos = document.querySelector(":root");
+    let hi = document.querySelector(".hi");
+    let sect1_cont = document.querySelector(".sect1_cont");
 
-  //ВЫЗОВ ФУЕКЦИЙ РАЗМЕРОВ БЛОКА
-  let widthDivBg = wDivBg(widthUser, kolUser);
-  let heightDivBg = hDivBg(heightUser, kolUser2);
+    primer.addEventListener("mousemove", moveMouse);
 
-  //СМЕНА РАЗМЕРА БЛОКА В ЗАВИСИМОСТИ ОТ ЭКРАНА
-  function changeSizeDiv(w, h, k) {
-     for (let i = 0; i < k.length; i++) {
-      kolDiv[i].style.width = wDivBg(w, kolUser) + "px";
-      kolDiv[i].style.height = hDivBg(h, kolUser2) + "px";
+    function moveMouse(e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      let funcPreobr = numbProc(x, y);
+      let a = Math.round(funcPreobr[0]);
+      let b = Math.round(funcPreobr[1]);
+      let comparX = comparisonX(a);
+      let comparY = comparisonY(b);
+      
+      /*    h.innerHTML = a + " , " + b;  */
+      mainPos.style.setProperty("--main-posX", comparX + "%");
+      mainPos.style.setProperty("--main-posY", comparY + "%");
     }
-  }
-
-  //ГЕНЕРАЦИЯ БЛОКОВ ПРИ ЗАПУСКЕ
-  function generateDivBgFunc(wDiv, hDiv, wUser, hUser) {
-    function kolDivFunc() {
-      let sD = widthDivBg * heightDivBg;
-      let sW = widthUser * heightUser;
-      let kol = sW / sD;
-      return kol;
+    //ПРЕВРД ПИКСЕЛЕЙ В ПРОЦЕНТЫ
+    function numbProc(x, y) {
+      let xP = (x * 100) / window.innerWidth;
+      let yP = (y * 100) / window.innerHeight;
+      let arr = [xP, yP];
+      return arr;
     }
 
-    let generateDivBg = function(w, h, el, k) {
-      k = kolDivFunc();
-      for (let i = 0; i < k; i++) {
-        var div = document.createElement("div");
-        div.classList.add("bgDiv");
-        
-        div.style.width = w + "px";
-        div.style.height = h + "px";
-        el.appendChild(div);
+    //ЗОНЫ РЕАГИРОВАНИЯ НА ЭКРАНЕ
+    function comparisonX(x) {
+      let result = 0;
+      if (x > 0 && x <= 25) {
+        return (result = 20);
       }
-    };
-    generateDivBg(widthDivBg, heightDivBg, bg1, kolUser);
-    generateDivBg(widthDivBg, heightDivBg, bg2, kolUser);
-    generateDivBg(widthDivBg, heightDivBg, bg3, kolUser);
-    generateDivBg(widthDivBg, heightDivBg, bg4, kolUser);
-  }
-  generateDivBgFunc(wDivBg, hDivBg, widthUser, heightUser);
+      if (x > 25 && x <= 50) {
+        return (result = 45);
+      }
+      if (x > 50 && x <= 75) {
+        return (result = 70);
+      }
+      if (x >= 75) {
+        return (result = 85);
+      }
+    }
 
-  //ОПРЕДЕЛЕНИЕ КОЛЛИЧЕСТВА div
-  kolDiv = document.querySelectorAll(".bg1 div");
-  kolDiv2 = document.querySelectorAll(".bg2 div");
-  kolDiv3 = document.querySelectorAll(".bg3 div");
-  kolDiv4 = document.querySelectorAll(".bg4 div");
+    function comparisonY(x) {
+      let result = 0;
 
-  //СОБЫТТИЕ КЛИКА
-  let next = document.querySelector(".next");
-  let back = document.querySelector(".back");
-  next.addEventListener("click", clickHeandler);
-  back.addEventListener("click", clickHeandler2);
+      if (x > 0 && x <= 25) {
+        return (result = 20);
+      }
+      if (x > 25 && x <= 50) {
+        return (result = 45);
+      }
+      if (x > 50 && x <= 75) {
+        return (result = 70);
+      }
+      if (x > 75) {
+        return (result = 80);
+      }
+    }
 
-  function clickHeandler() {
-       checkClass(arrayScreen);
-       disabledButton(next,1500);
-  }
 
-  //ВЕРНУТЬСЯ НАЗАД
-  function clickHeandler2() {
-      checkClassBack(arrayScreen);
-      disabledButton(back,1500);
-  }
+    //Нажатие на ссылку
 
-  let ran = function(){
-    return Math.floor(Math.random() * 10)
-  }
-//disabled clickk
-function disabledButton(el,time){
-  el.setAttribute("disabled",true);
-  setTimeout(()=>{
-    el.removeAttribute("disabled");
-  },time);
-}
-
-  //эффект исчезновения
-  function clickEffect(div, nameAnimation) {
+    let bg = document.querySelector(".Bg");
+    let myWorks = document.querySelector(".myWorks");
+    let linkMyWorks = document.querySelector(".linkMyWorks");
+    let linkMyWorksMobile = document.querySelector(".linkMyWorksMobile");
+    let linkMyStory = document.querySelector(".linkMyStory");
+    let myStory = document.querySelector(".myStory");
+    let linkMyStoryMobile = document.querySelector(".linkMyStoryMobile");
     
-    let random;
-    function interval() {
-     for(let i=0; i <div.length; i++){
-    
-      random = ran();
-      div[i].classList.add("divKills");
-  if (div[i].classList.contains("divNew")) {
-    div[i].classList.remove("divNew");
-  }
 
-  setTimeout(()=>{
-    div[i].classList.remove("divKills");
-  },2000);
-    if(div[i].parentNode.classList.contains("o")){
-      div[i].style.transform = "scale(0) rotate(180deg)";
-   }
-      div[i].style.transitionDelay = "0." + random + "s";
-     }
- }
-   interval()
-  }
+    function clickLink(el) {
+      el.classList.add("bgShak");
+      setTimeout(function() {
+        el.classList.remove("bgShak");
+      }, 400);
+    }
 
-  //ЭФФЕКТ появления
-  function clickEffect2(div, nameAnimation) {
-    let random;
-    
-     function interval() {
- for(let i =0; i <div.length;i++){
-   //Удаление дизактивности кнопки
+    //ЭФФЕКТ ПАДЕНИЯ ТЕКСТА
+    let effetctText = function() {
+      let count = 0;
+      cicle(contText(hi), rotateEffect);
 
+      function contText(el){
+        let hiText = el.innerHTML;
+        return hiText;
+      }
 
-  random = ran();
-   div[i].classList.add("divNew")
-  if (div[i].classList.contains("divKills")) {
-    div[i].classList.remove("divKills"); 
-  }
-  div[i].style.transitionDelay = "0." + random + "s"; 
-//проверка первого скрина
-  if(div[i].parentNode.classList.contains("o")){
-      div[i].style.transform = "scale(1) rotate(0deg)";
-  }
- }
-}
-   interval();
-  }
+//Создаем спан в h
+      function generateSpan(cont) {
+        count++;
+        let sp = document.createElement("span");
+        sp.innerHTML = cont;
+        sp.classList.add("symb");
+        sp.classList.add("symb" + count);
+        /*  sect1_cont.insertBefore(hi, sect1_cont.firstChild); */
+        hi.appendChild(sp);
+      }
 
-  //ПОИСК ПО КЛАССАМ ДЛЯ ПЕРКЛЮЧЕНИЯ СКРИНОВ
-  function checkClass(arr) {
-    if (!arr[3].classList.contains("active")) {
-      let index = 0;
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i].classList.contains("active")) {
-           let endAnimation = childSearch(arr[i],clickEffect); 
-           index = i;
-             arr[i].classList.remove("active");
-              arr[i].classList.add("shadow");
-              setTimeout(()=>{
-                childSearchOther(arr[index + 1],clickEffect2);
-              },500)
+//Основной цикл создающий и эффекты
+      function cicle(cont, rotat) {
+        let contTextResult = String(cont);
+        hi.innerHTML = " ";
+        let contTextResultLenght = contTextResult.length;
+        for (let i = 0; i < contTextResultLenght; i++) {
+          generateSpan(contTextResult[i]);
+        }
+        let spanH = document.querySelectorAll(".hi span");
+        setTimeout(function() {
+          for (let i = 0; i < contTextResultLenght; i++) {
+              goDownEffect(spanH[i],3000);
+                rotat(spanH[i]); 
           }
+        }, 0);
+        goDownEffect(myStory,1000);
+        goDownEffect(myWorks,1000);
       }
-      arr[index + 1].classList.add("active");
-      arr[index + 1].classList.remove("shadow");
-    } 
-    else {
-      next.setAttribute("disabled", true);
-    }
-  }
 
-  function checkClassBack(arr) {
-    if (!arr[0].classList.contains("active")) {
-      let index = 0;
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i].classList.contains("active")) {
-           let endAnimation = childSearch(arr[i],clickEffect);  
-            index = i;
-            arr[i].classList.remove("active");
-            arr[i].classList.add("shadow");
-            childSearchOther(arr[index - 1],clickEffect2);
-         }
+      function rotateEffect(el) {
+        count++;
+       
+        if (count%2 == 0) {
+          let random = Math.floor(Math.random() * 30);
+          el.style.transform = "rotate(" + random + "deg)";
+        } else {
+          let random = Math.floor(Math.random() * -30);
+          el.style.transform = "rotate(" + random + "deg)";
+         
+        }
       }
-      arr[index - 1].classList.add("active");
-      arr[index - 1].classList.remove("shadow");
-    } else {
-      back.setAttribute("disabled", true);
-     
+
+      function goDownEffect(el,px) {
+        let random = function(min, max) {
+          var rand = min + Math.random() * (max + 1 - min);
+          rand = Math.floor(rand);
+          return rand;
+        };
+
+        setTimeout(function() {
+          el.style.transform = "translateX(" + px + "px)" + " " + "rotate(-180deg)";
+          el.style.opacity = "0";
+        }, random(400, 1500));
+      }
     }
-  }
-//ПОИСК НУЖНЫХ DIV ПРИ ЛВИЖЕНИИ ВПЕРЕД
-  function childSearch(el, func) {
-    let child = el.childNodes;
-    let bg = child[1];
-    let divBg = bg.childNodes;
-    func(divBg, "animationDIV");
-    return child;
-  }
 
-  function childSearchOther(el, func) {
-    let child = el.childNodes;
-    let bg = child[1];
-    let divBg = bg.childNodes; 
-    func(divBg, "divGoLeftAn");
-    return child;
-  }
+    //MYSTORY
+    function myStoryFunction(){
+      let text = "Меня зовут Артем, я веб-разработчик, мне нравится создавать. Мои принципы по жизни таковы что всё должно быть сделано со смыслом и эмоцией, тогда это имеет право существовать. И я с удовольствием создаю дизайны сайтов и пишу инструкции, для наших электроных друзей."
+        function clearH(el){
+          el.innerHTML = "";
+          console.log("hi clear");
+          return el;
+        }
+        clearH(hi);
+        cicleMyStory(textMystoty,);
+
+        function textMystoty(el,cont){
+          el.innerHTML = cont;
+          return el.innerHTML;
+        }
+
+        //Создаем спан в h
+      function generateSpanMyStory(cont) {
+        /* count++; */
+        let sp = document.createElement("span");
+        sp.innerHTML = cont;
+        sp.classList.add("symb");
+       /*  sp.classList.add("symb" + count); */
+        /*  sect1_cont.insertBefore(hi, sect1_cont.firstChild); */
+        hi.appendChild(sp);
+      }
+
+        //Основной цикл создающий и эффекты
+      function cicleMyStory(cont, rotat) {
+        let contTextResult = String(cont(hi,text));
+        hi.innerHTML = " ";
+        let contTextResultLenght = contTextResult.length;
+        for (let i = 0; i < contTextResultLenght; i++) {
+          generateSpanMyStory(contTextResult[i]);
+        }
+        let spanH = document.querySelectorAll(".hi span");
+      /*   setTimeout(function() {
+          for (let i = 0; i < contTextResultLenght; i++) {
+              goDownEffect(spanH[i],3000);
+                rotat(spanH[i]); 
+          }
+        }, 0); */
+    /*     goDownEffect(myStory,1000);
+        goDownEffect(myWorks,1000);
+     */
+      }
 
 
- 
+
+
+
+    //CLOSE MYSTORY  
+    }
+    
+  linkMyWorks.addEventListener("click", function() {
+    clickLink(bg);
+    effetctText();
+    setTimeout(function(){
+      myStoryFunction();
+    },2000);
+   
+  });
+  linkMyWorksMobile.onclick = function() {
+    clickLink(bg);
+    effetctText();
+    setTimeout(function(){
+      myStoryFunction();
+    },2000);
+  };
+  
+  linkMyStoryMobile.onclick = function() {
+    clickLink(bg);
+    effetctText();
+    setTimeout(function(){
+      myStoryFunction();
+    },2000);
+  };
+  
+  linkMyStory.addEventListener("click", function() {
+    clickLink(bg);
+    effetctText();
+    setTimeout(function(){
+      myStoryFunction();
+    },2000);
+    
+  });
 
 
 
@@ -238,4 +273,22 @@ function disabledButton(el,time){
 
 
 
-}; //ENDloader
+
+
+
+
+
+
+
+
+
+
+
+
+  };
+  
+}
+
+
+
+
