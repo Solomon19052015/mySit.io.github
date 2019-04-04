@@ -12,21 +12,17 @@
   src: url("fonts/Geometria-Bold.ttf");
 }
 
-
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Geometria-Bold';
+  font-family: "Geometria-Bold";
   color: rgb(100, 93, 93);
- 
-  
 }
 
 h1 {
   padding: 0;
   margin: 0;
   font-weight: 600;
-  
 }
 
 a {
@@ -36,44 +32,40 @@ a {
 
 .container {
   width: 100%;
-  height: 100vh;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-.active{
+.active {
   z-index: 1;
 }
 
-.shadow{
+.shadow {
   z-index: 0;
 }
 
-.screen{
+.screen {
   top: 0;
   width: 100%;
- 
-  position: absolute;
-  overflow: hidden; 
 
+  position: absolute;
+  overflow: hidden;
 }
 
-.bg{
+.bg {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow:column wrap;
+  flex-flow: column wrap;
   position: absolute;
   z-index: 2;
-
-
 }
-.cont{
+.cont {
   opacity: 0;
   z-index: 0;
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 300px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,194 +74,278 @@ a {
   transition-delay: 1s;
 }
 
-body .screen .sect_contActive{
-  
+body .screen .sect_contActive {
   opacity: 1;
- 
 }
 
-button{
-position: absolute;
-top: 80%;
-z-index: 99;
-height: 50px;
-cursor: pointer;
-background: rgba(233, 233, 233, 0);
-border: none;
-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+.buttonBlock{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99;
+  height: 100px;
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
 }
 
-button:active{
+button {
+   height: 50px;
+   width: 50px;
+  cursor: pointer;
+  background: rgba(233, 233, 233, 0);
+  border: none;
+  border-radius: 15%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+}
+
+button:active {
   outline: none;
 }
 
-.next{
-left: 55%;
-border: 30px solid transparent;
-border-left: 40px solid rgba(255, 255, 255, 0.479);
-transform-origin: left;
+.next {
+  border: 30px solid transparent;
+  border-left: 40px solid rgba(255, 255, 255, 0.479); 
+  transform-origin: left;
+  
 }
 
-.back{
-  left: 40%;
-  border: 30px solid transparent;	
+.back {
+  border: 30px solid transparent;
   border-right: 40px solid rgb(255, 255, 255, 0.479);
   transform-origin: right;
 }
 
-.next:hover{
+.next:hover {
   border-left: 40px solid rgb(255, 255, 255);
-  transform: scaleX(1.4)
+  transform: scaleX(1.4);
 }
-.back:hover{
+.back:hover {
   border-right: 40px solid rgb(255, 255, 255);
-  transform: scaleX(1.4)
+  transform: scaleX(1.4);
 }
 
-.bg .bgDiv{
-   position: relative;
-   transform: scale(0) rotate(180deg); 
-   opacity: 0;
-   border-radius: 100%; 
-  
-
-
-}
-
-.o .bgDiv{
-  transform: scale(1) rotate(0deg); 
-  opacity: 1;
-  border-radius: 0%;
- /*  transition-delay: 0.2s; */
-
-}
-
-
-.bg .divKills{
-  transform: scale(0) rotate(180deg);
+.bg .bgDiv {
+  position: relative;
+  transform: scale(0) rotate(0deg);
   opacity: 0;
-   border-radius: 100%; 
-   
- /*  animation: divKills 1s ease-in 0s 1 normal forwards; */
-
 }
 
-.bg .divNew{
+.o .bgDiv {
   transform: scale(1) rotate(0deg);
   opacity: 1;
   border-radius: 0%;
- 
- /*  animation: divNew 1s ease-in 0s 1 normal forwards;*/
-} 
-
-.bg .trans{
-  transition:  all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
+  /*  transition-delay: 0.2s; */
 }
 
+.bg .divKills {
+  transform: scale(0) rotate(0deg);
+  opacity: 0;
+  /* border-radius: 100%;  */
+}
 
+.bg .divNew {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+  border-radius: 0%;
+
+  /*  animation: divNew 1s ease-in 0s 1 normal forwards;*/
+}
+
+.bg .trans {
+  transition: all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
+}
 
 .screen_1 {
- 
- }
 
-.screen_1  .bg1{
-  
 }
 
-.screen_1  .bg1 div{
+.screen_1 .bg1 {
+}
+
+.screen_1 .bg1 div {
   background: rgb(192, 27, 27);
 }
 
-
- .screen_1 .sect1_cont{
-
-    overflow: hidden;
-  
-
- }
- .screen_1 .sect1_cont h1{
-   position: relative;
-   color: #fff;
-   text-align: center;
-   width: 100%;
-   font-size: 40px;
-   text-shadow: 5px 5px 2px rgba(71, 71, 71, 0.555);
- 
- }
-
- .screen_1 .sect1_cont p{
-  color: rgba(255, 255, 255, 0.507);
- }
-
-.screen_2 {
- 
- }
-
-.screen_2  .bg2{
- 
+.screen_1 .sect1_cont {
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+}
+.screen_1 .sect1_cont h1 {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  font-size: 40px;
+  text-shadow: 5px 5px 2px rgba(71, 71, 71, 0.555);
 }
 
-.screen_2  .bg2 div{
+.screen_1 .sect1_cont p {
+  color: rgba(255, 255, 255, 0.507);
+}
+
+.screen_2 {
+}
+
+.screen_2 .bg2 {
+}
+
+.screen_2 .bg2 div {
   background: rgb(218, 199, 32);
 }
 
-
- .screen_2 .sect2_cont{
-overflow: hidden;
-
- }
- .screen_2 .sect2_cont h1{
+.screen_2 .sect2_cont {
+  overflow: hidden;
+}
+.screen_2 .sect2_cont h1 {
   position: relative;
   color: #fff;
   text-align: center;
   width: 100%;
   font-size: 40px;
   text-shadow: 5px 5px 2px rgba(71, 71, 71, 0.555);
- }
-
-
-.screen_3 {
- 
- }
-
-.screen_3  .bg3{
- 
 }
 
-.screen_3  .bg3 div{
+.screen_2 .sect2_cont .info{
+  width: 80%;
+}
+
+.screen_2 .sect2_cont p{
+  color: rgba(255, 255, 255, 0.685);
+}
+
+.screen_3 {
+}
+
+.screen_3 .bg3 {
+}
+
+.screen_3 .bg3 div {
   background: rgb(42, 79, 202);
 }
 
+.screen_3 .sect3_cont {
+display: flex;
+flex-flow: column;
+align-items: center;
+justify-content: flex-start;
+  padding-top: 50px;
+}
 
- .screen_3 .sect3_cont{
-
- }
-
- .screen_3 .sect3_cont h1{
+.screen_3 .sect3_cont h1 {
   position: relative;
   color: #fff;
   text-align: center;
   width: 100%;
   font-size: 40px;
   text-shadow: 5px 5px 2px rgba(71, 71, 71, 0.555);
- }
+}
+.screen_3 .sect3_cont .works{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 30px;
+
+}
+/* СТИЛИЗАЦИЯ СКОЛЛБАРА */
+::-webkit-scrollbar-button { 
+  background-image:url(''); 
+  background-repeat:no-repeat; 
+  width:3px; 
+  height:0px 
+  } 
+  
+  ::-webkit-scrollbar-track { 
+  background-color:#707070; 
+  box-shadow:0px 0px 3px rgb(51, 51, 51) inset; 
+  } 
+  
+  ::-webkit-scrollbar-thumb { 
+  -webkit-border-radius: 5px; 
+  border-radius: 5px; 
+  background-color:#f8f8f8; 
+  box-shadow:0px 1px 1px rgb(80, 80, 80) inset; 
+  background-image:url('https://yraaa.ru/_pu/24/59610063.png'); 
+  background-position:center; 
+  background-repeat:no-repeat; 
+  } 
+  
+  ::-webkit-resizer{ 
+  background-image:url(''); 
+  background-repeat:no-repeat; 
+  width:7px; 
+  height:0px 
+  } 
+  
+  ::-webkit-scrollbar{ 
+  width: 6px; 
+  }
+
+
+
+.screen_3 .sect3_cont .works a{
+  width: 28%;
+  height: 250px;
+  display: block;
+  overflow: auto;
+  filter: brightness(0.8);
+  
+
+  
+}
+.screen_3 .sect3_cont .works a img{
+  width: 100%;
+ 
+  
+}
+.screen_3 .sect3_cont .works a:hover{
+  filter: brightness(1)
+}
+
+.screen_3 .sect3_cont .works .worksIncrease{
+  position: absolute;
+  z-index: 98;
+  width: 90%;
+  height: 100%;
+  top:0;
+  transition: all 0.5s ease;
+  filter: brightness(1)
+
+}
+
+.git{
+  color: rgba(255, 255, 255, 0.836);
+  margin-top: 15px;
+  transition: all 0.4s ease;
+}
+.git:hover{
+  color: rgb(255, 255, 255);
+}
 
 .screen_4 {
- 
-}
 
-.screen_4  .bg4{
- 
-}
-
-.screen_4  .bg4 div{
- background: rgb(65, 199, 39);
-}
-
-.screen_4 .sect4_cont{
 
 }
-.screen_4 .sect4_cont h1{
+
+.screen_4 .bg4 {
+}
+
+.screen_4 .bg4 div {
+  background: rgb(65, 199, 39);
+}
+
+.screen_4 .sect4_cont {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  margin: 0 auto;
+
+}
+.screen_4 .sect4_cont h1 {
   position: relative;
   color: #fff;
   text-align: center;
@@ -278,22 +354,44 @@ overflow: hidden;
   text-shadow: 5px 5px 2px rgba(71, 71, 71, 0.555);
 }
 
-
-.block{
+.block {
   width: 100%;
-  position: relative  ;
+  position: relative;
   z-index: 99;
   height: 100vh;
   display: flex;
   flex-flow: row wrap;
-
   background: rgb(153, 153, 153);
   overflow: hidden;
 }
 
-.block div{
+.block div {
   background: #000;
-  flex:1 1 10%;
-  
+  flex: 1 1 10%;
 }
 
+.screen_4 .sect4_cont p{
+  color: rgba(255, 255, 255, 0.685);
+  text-align: center;
+}
+.screen_4 .sect4_cont .contacts{
+  width: 200px;
+  margin: 10px auto 0; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.screen_4 .sect4_cont a{
+ 
+}
+.screen_4 .sect4_cont a:hover i{
+  color: #fff;
+}
+
+.screen_4 .sect4_cont a i{
+  color: rgba(255, 255, 255, 0.685);
+  font-size: 60px;
+  font-weight: 100;
+  transition:all 0.4s ease;
+  
+}

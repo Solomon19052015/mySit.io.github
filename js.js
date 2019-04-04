@@ -2,32 +2,40 @@ window.onload = function() {
 
   let widthUser = document.documentElement.clientWidth;
   let  heightUser = document.documentElement.clientHeight;
-  
   const bg1 = document.querySelector(".bg1");
   const bg2 = document.querySelector(".bg2");
   const bg3 = document.querySelector(".bg3");
   const bg4 = document.querySelector(".bg4");
-  const screen_1 = document.querySelector(".screen_1");
-  const screen_2 = document.querySelector(".screen_2");
-  const screen_3 = document.querySelector(".screen_3");
-  const screen_4 = document.querySelector(".screen_4");
-  const container = document.querySelector(".container");
-  const kolUser = 10;
-  const kolUser2 = kolUser /2;
-  let kolDiv = null;
-  let kolDiv2 = null;
-  let kolDiv3 = null;
-  let kolDiv4 = null;
-  let screen1H = document.querySelector(".screen_1 .sect1_cont h1");
-  let screen2H = document.querySelector(".screen_2 .sect2_cont h1");
+   const container = document.querySelector(".container");
+  let kolUser =   mobWidth(widthUser);
+    const kolUser2 = kolUser/2 ;
   const collectScreen = document.querySelectorAll(".screen");
   const arrayScreen = Array.prototype.slice.call(collectScreen, 0);
 
   let counter = 0;
   //УСТАНОВКА ВЫСОТЫ КОНТАИНЕРА
-  container.style.height = heightUser + "px";
-  for(let i =0; i <arrayScreen.length;i++ ){
-    arrayScreen[i].style.height = heightUser + "px";
+  function changeHeightContainer(h){
+    container.style.height = h + "px";
+    for(let i =0; i <arrayScreen.length;i++ ){
+      arrayScreen[i].style.height = h + "px";
+    }
+  
+  }
+  changeHeightContainer(heightUser);
+
+  //ОПРЕДЕЛЕНИЕ ШИРИНЫ ДЛЯ МОБ ВЕРСИИ
+  function mobWidth(w){
+    console.log(w);
+    var kolU = null;
+    if(w < 700 && w > 400){
+       return kolU = 4;
+    }
+    else if(w < 400){
+      return kolU = 2;
+    }
+    else{
+      return kolU =6
+    }
   }
 
   window.addEventListener("resize", resizeHeandler);
@@ -36,6 +44,8 @@ window.onload = function() {
    let  widthUser = document.documentElement.clientWidth; 
    let heightUser = document.documentElement.clientHeight;
      changeSizeDiv(widthUser, heightUser, allDivBg);
+     changeHeightContainer(heightUser);
+     mobWidth(widthUser);
   }
 
   //ШИРИНА БЛОКА
@@ -171,7 +181,7 @@ function removeClassCont(el,clas){
     div[i].style.transitionDelay = "0s";
   },2000);
     if(div[i].parentNode.classList.contains("o")){
-      div[i].style.transform = "scale(0) rotate(180deg)";
+      div[i].style.transform = "scale(0) rotate(0deg)";
    }
       div[i].style.transitionDelay = "0." + random + "s";
      }
@@ -278,8 +288,33 @@ function removeClassCont(el,clas){
   }
 
 
- 
+ //БЛОК МОИ РАБОТЫ
+ function blockWorks(){
+ let work1 = document.querySelector(".w1");
+ let work2 = document.querySelector(".w2");
+ let work3 = document.querySelector(".w3");
+let works = [work1,work2,work3];
+let count = 0;
 
+for(let i =0; i < works.length; i++){
+  works[i].addEventListener("click",increaseWork );
+} 
+
+function increaseWork(e){
+  count++;
+  let el = e.target.parentNode;
+  if(count == 1){
+     el.classList.add("worksIncrease");
+   
+  }
+  else{
+    el.classList.remove("worksIncrease");
+    count=0;
+  }
+  
+}
+ }
+ blockWorks();
 
 
 
