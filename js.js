@@ -9,11 +9,7 @@
  load.classList.add("load");
  kv.classList.add("kv"); 
 
-
-
-
 })();
-
 
 window.onload = function() {
 
