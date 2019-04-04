@@ -1,4 +1,30 @@
+(function(func) {
+  let h = document.createElement("h2");
+ h.innerHTML = "ЗАГРУЗКА";
+ let load = document.createElement("div");
+ let kv = document.createElement("div");
+ document.body.insertBefore(load, document.body.firstChild);
+ load.insertBefore(kv, load.firstChild);
+ load.insertBefore(h, load.firstChild);
+ load.classList.add("load");
+ kv.classList.add("kv"); 
+
+
+
+
+})();
+
+
 window.onload = function() {
+
+  setTimeout(function() {
+    let load = document.querySelector(".load");
+    let kv = document.querySelector(".kv");
+    let h = document.querySelector(".load h2");
+    load.classList.add("closeLoad");
+    kv.classList.add("kvClose");
+    h.classList.add("closeH");
+  }, 1500); 
 
   let widthUser = document.documentElement.clientWidth;
   let  heightUser = document.documentElement.clientHeight;
@@ -7,8 +33,9 @@ window.onload = function() {
   const bg3 = document.querySelector(".bg3");
   const bg4 = document.querySelector(".bg4");
    const container = document.querySelector(".container");
-  let kolUser =   mobWidth(widthUser);
-    const kolUser2 = kolUser/2 ;
+  var kol =  mobWidth(widthUser);
+  var kolUser = kol.kolU;
+    var kolUser2 = kol.kolUh ;
   const collectScreen = document.querySelectorAll(".screen");
   const arrayScreen = Array.prototype.slice.call(collectScreen, 0);
 
@@ -25,16 +52,29 @@ window.onload = function() {
 
   //ОПРЕДЕЛЕНИЕ ШИРИНЫ ДЛЯ МОБ ВЕРСИИ
   function mobWidth(w){
-    console.log(w);
-    var kolU = null;
+    let kolU = null;
+let kolUh = kolU;
     if(w < 700 && w > 400){
-       return kolU = 4;
+      kolU = 3;
+      kolUh=kolU;
+      return {
+        kolU,kolUh
+      }  
+      
     }
     else if(w < 400){
-      return kolU = 2;
+      kolU = 2;
+      kolUh=kolU;
+      return {
+        kolU,kolUh
+      }
     }
     else{
-      return kolU =6
+      kolU = 6,
+      kolUh = kolU/2
+      return {
+        kolU,kolUh
+      };
     }
   }
 

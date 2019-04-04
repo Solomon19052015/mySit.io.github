@@ -12,6 +12,20 @@
   src: url("fonts/Geometria-Bold.ttf");
 }
 
+@media (max-width: 700px){
+  body .screen_2 .sect2_cont .info{
+    width: 95%;
+  }
+
+}
+
+:root{
+  --screenBg_1: rgb(68, 97, 158) ;
+  --screenBg_2: rgb(161, 60, 60);
+  --screenBg_3: rgb(79, 156, 85);
+  --screenBg_4: rgb(179, 189, 51);
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -59,12 +73,13 @@ a {
   position: absolute;
   z-index: 2;
 }
+
 .cont {
   opacity: 0;
   z-index: 0;
   position: relative;
   z-index: 10;
-  width: 100%;
+  width: 95%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -132,20 +147,20 @@ button:active {
   transform: scale(0) rotate(0deg);
   opacity: 0;
 }
-
+/* СТАРТОВЫЙ ЭКРАН */
 .o .bgDiv {
   transform: scale(1) rotate(0deg);
   opacity: 1;
   border-radius: 0%;
   /*  transition-delay: 0.2s; */
 }
-
+/* КЛАСС СМЕНЫ старого ФОНА */
 .bg .divKills {
   transform: scale(0) rotate(0deg);
   opacity: 0;
   /* border-radius: 100%;  */
 }
-
+/* КЛАСС СМЕНЫ нового ФОНА */
 .bg .divNew {
   transform: scale(1) rotate(0deg);
   opacity: 1;
@@ -154,6 +169,7 @@ button:active {
   /*  animation: divNew 1s ease-in 0s 1 normal forwards;*/
 }
 
+/* ДОБАВЛНИЕ ПЛАВНОСТИ БЛОКАМ ФОНА */
 .bg .trans {
   transition: all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
 }
@@ -166,12 +182,12 @@ button:active {
 }
 
 .screen_1 .bg1 div {
-  background: rgb(192, 27, 27);
+  background: var(--screenBg_1);
 }
 
 .screen_1 .sect1_cont {
   overflow: hidden;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 .screen_1 .sect1_cont h1 {
@@ -185,6 +201,7 @@ button:active {
 
 .screen_1 .sect1_cont p {
   color: rgba(255, 255, 255, 0.507);
+  text-align: center;
 }
 
 .screen_2 {
@@ -194,11 +211,15 @@ button:active {
 }
 
 .screen_2 .bg2 div {
-  background: rgb(218, 199, 32);
+  background:var(--screenBg_2);
 }
 
 .screen_2 .sect2_cont {
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  margin: 0 auto;
 }
 .screen_2 .sect2_cont h1 {
   position: relative;
@@ -215,6 +236,7 @@ button:active {
 
 .screen_2 .sect2_cont p{
   color: rgba(255, 255, 255, 0.685);
+  width: 100%;
 }
 
 .screen_3 {
@@ -224,7 +246,7 @@ button:active {
 }
 
 .screen_3 .bg3 div {
-  background: rgb(42, 79, 202);
+  background: var(--screenBg_3);
 }
 
 .screen_3 .sect3_cont {
@@ -233,6 +255,7 @@ flex-flow: column;
 align-items: center;
 justify-content: flex-start;
   padding-top: 50px;
+  width: 95%;
 }
 
 .screen_3 .sect3_cont h1 {
@@ -335,13 +358,13 @@ justify-content: flex-start;
 }
 
 .screen_4 .bg4 div {
-  background: rgb(65, 199, 39);
+  background: var(--screenBg_4);
 }
 
 .screen_4 .sect4_cont {
   display: flex;
   flex-flow: column nowrap;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 
 }
@@ -394,4 +417,135 @@ justify-content: flex-start;
   font-weight: 100;
   transition:all 0.4s ease;
   
+}
+
+
+
+
+
+
+
+
+
+
+/* ПРЕДЛОАДЕР */
+
+.load {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 100;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  background: rgb(67, 160, 160);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  animation: loadB 0.8s ease 0.1s infinite alternate-reverse;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  
+}
+
+.load h2{
+    font-size: 26px;
+    font-weight: 100;
+    text-align: center;
+    padding: 20px;
+    border-radius: 2px;
+    position: relative;
+    color: rgba(255, 255, 255, 0);
+    text-shadow: 0px 0px 5px rgba(233, 233, 233, 0.411);
+    
+
+}
+
+
+.closeLoad,.closeH {
+  z-index: 0;
+  background: rgba(64, 167, 158, 0);
+  opacity: 0;
+}
+.kv {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.342);
+          box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.342);
+  z-index: 101;
+  background: #fff;
+  -webkit-transform: translateX(0px) rotate(0deg);
+          transform: translateX(0px) rotate(0deg);
+  -webkit-animation: kvAfter 1s cubic-bezier(1, 1, 1, 1) 0s infinite alternate;
+          animation: kvAfter 1s cubic-bezier(1, 1, 1, 1) 0s infinite alternate;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.kvClose {
+  opacity: 0;
+  z-index: 0;
+}
+
+@-webkit-keyframes kvAfter {
+  0% {
+    -webkit-transform: translate(-100px) rotate(0deg);
+            transform: translate(-100px) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translate(-50px) rotate(90deg);
+            transform: translate(-50px) rotate(90deg);
+  }
+  50% {
+    -webkit-transform: translate(0px) rotate(180deg);
+            transform: translate(0px) rotate(180deg);
+  }
+  75% {
+    -webkit-transform: translate(50px) rotate(270deg);
+            transform: translate(50px) rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: translate(100px) rotate(360deg);
+            transform: translate(100px) rotate(360deg);
+  }
+}
+
+@keyframes kvAfter {
+  0% {
+    -webkit-transform: translate(-100px) rotate(0deg);
+            transform: translate(-100px) rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: translate(-50px) rotate(90deg);
+            transform: translate(-50px) rotate(90deg);
+  }
+  50% {
+    -webkit-transform: translate(0px) rotate(180deg);
+            transform: translate(0px) rotate(180deg);
+  }
+  75% {
+    -webkit-transform: translate(50px) rotate(270deg);
+            transform: translate(50px) rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: translate(100px) rotate(360deg);
+            transform: translate(100px) rotate(360deg);
+  }
 }
