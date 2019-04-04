@@ -191,8 +191,13 @@ a {
 .bg {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
   position: absolute;
   z-index: 2;
 }
@@ -204,12 +209,23 @@ a {
   z-index: 10;
   width: 95%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-transition: all 1s cubic-bezier(0.875, 0.885, 0.32, 1.1);
   transition: all 1s cubic-bezier(0.875, 0.885, 0.32, 1.1);
-  transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
 }
 
 body .screen .sect_contActive {
@@ -225,8 +241,12 @@ body .screen .sect_contActive {
   z-index: 99;
   height: 100px;
   width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 button {
@@ -236,6 +256,7 @@ button {
   background: rgba(233, 233, 233, 0);
   border: none;
   border-radius: 15%;
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
 }
 
@@ -246,46 +267,54 @@ button:active {
 .next {
   border: 30px solid transparent;
   border-left: 40px solid rgba(255, 255, 255, 0.479); 
-  transform-origin: left;
+  -webkit-transform-origin: left; 
+          transform-origin: left;
   
 }
 
 .back {
   border: 30px solid transparent;
   border-right: 40px solid rgb(255, 255, 255, 0.479);
-  transform-origin: right;
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 
 .next:hover {
   border-left: 40px solid rgb(255, 255, 255);
-  transform: scaleX(1.4);
+  -webkit-transform: scaleX(1.4);
+          transform: scaleX(1.4);
 }
 .back:hover {
   border-right: 40px solid rgb(255, 255, 255);
-  transform: scaleX(1.4);
+  -webkit-transform: scaleX(1.4);
+          transform: scaleX(1.4);
 }
 
 .bg .bgDiv {
   position: relative;
-  transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+          transform: scale(0) rotate(0deg);
   opacity: 0;
 }
 /* СТАРТОВЫЙ ЭКРАН */
 .o .bgDiv {
-  transform: scale(1) rotate(0deg);
+  -webkit-transform: scale(1) rotate(0deg);
+          transform: scale(1) rotate(0deg);
   opacity: 1;
   border-radius: 0%;
   /*  transition-delay: 0.2s; */
 }
 /* КЛАСС СМЕНЫ старого ФОНА */
 .bg .divKills {
-  transform: scale(0) rotate(0deg);
+  -webkit-transform: scale(0) rotate(0deg);
+          transform: scale(0) rotate(0deg);
   opacity: 0;
   /* border-radius: 100%;  */
 }
 /* КЛАСС СМЕНЫ нового ФОНА */
 .bg .divNew {
-  transform: scale(1) rotate(0deg);
+  -webkit-transform: scale(1) rotate(0deg);
+          transform: scale(1) rotate(0deg);
   opacity: 1;
   border-radius: 0%;
 
@@ -294,6 +323,7 @@ button:active {
 
 /* ДОБАВЛНИЕ ПЛАВНОСТИ БЛОКАМ ФОНА */
 .bg .trans {
+  -webkit-transition: all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
   transition: all 1s cubic-bezier(0.775, 0.885, 0.82, 1.1);
 }
 
@@ -339,8 +369,12 @@ button:active {
 
 .screen_2 .sect2_cont {
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 95%;
   margin: 0 auto;
 }
@@ -373,10 +407,19 @@ button:active {
 }
 
 .screen_3 .sect3_cont {
+display: -webkit-box;
+display: -ms-flexbox;
 display: flex;
-flex-flow: column;
-align-items: center;
-justify-content: flex-start;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+    -ms-flex-flow: column;
+        flex-flow: column;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: start;
+    -ms-flex-pack: start;
+        justify-content: flex-start;
   padding-top: 30px;
   margin: 0 auto;
   width: 95%;
@@ -398,9 +441,15 @@ justify-content: flex-start;
   padding: 0;
 }
 .screen_3 .sect3_cont .works{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 90%;
   margin-top: 30px;
 
@@ -415,14 +464,15 @@ justify-content: flex-start;
   
   ::-webkit-scrollbar-track { 
   background-color:#707070; 
-  box-shadow:0px 0px 3px rgb(51, 51, 51) inset; 
+  -webkit-box-shadow:0px 0px 3px rgb(51, 51, 51) inset; 
+          box-shadow:0px 0px 3px rgb(51, 51, 51) inset; 
   } 
   
   ::-webkit-scrollbar-thumb { 
-  -webkit-border-radius: 5px; 
   border-radius: 5px; 
   background-color:#f8f8f8; 
-  box-shadow:0px 1px 1px rgb(80, 80, 80) inset; 
+  -webkit-box-shadow:0px 1px 1px rgb(80, 80, 80) inset; 
+          box-shadow:0px 1px 1px rgb(80, 80, 80) inset; 
   background-image:url('https://yraaa.ru/_pu/24/59610063.png'); 
   background-position:center; 
   background-repeat:no-repeat; 
@@ -446,7 +496,8 @@ justify-content: flex-start;
   height: 250px;
   display: block;
   overflow: auto;
-  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
   
 
   
@@ -457,7 +508,8 @@ justify-content: flex-start;
   
 }
 .screen_3 .sect3_cont .works a:hover{
-  filter: brightness(1)
+  -webkit-filter: brightness(1);
+          filter: brightness(1)
 }
 
 .screen_3 .sect3_cont .works .worksIncrease{
@@ -466,14 +518,17 @@ justify-content: flex-start;
   width: 90%;
   height: 100%;
   top:0;
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  filter: brightness(1)
+  -webkit-filter: brightness(1);
+          filter: brightness(1)
 
 }
 
 .git{
   color: rgba(255, 255, 255, 0.836);
   margin-top: 15px;
+  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 .git:hover{
@@ -493,8 +548,13 @@ justify-content: flex-start;
 }
 
 .screen_4 .sect4_cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   width: 95%;
   margin: 0 auto;
 
@@ -513,15 +573,22 @@ justify-content: flex-start;
   position: relative;
   z-index: 99;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   background: rgb(153, 153, 153);
   overflow: hidden;
 }
 
 .block div {
   background: #000;
-  flex: 1 1 10%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 10%;
+          flex: 1 1 10%;
 }
 
 .screen_4 .sect4_cont p{
@@ -531,9 +598,14 @@ justify-content: flex-start;
 .screen_4 .sect4_cont .contacts{
   width: 200px;
   margin: 10px auto 0; 
+  display: -webkit-box; 
+  display: -ms-flexbox; 
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .screen_4 .sect4_cont a{
  
@@ -546,6 +618,7 @@ justify-content: flex-start;
   color: rgba(255, 255, 255, 0.685);
   font-size: 60px;
   font-weight: 100;
+  -webkit-transition:all 0.4s ease;
   transition:all 0.4s ease;
   
 }
