@@ -239,7 +239,6 @@ function removeClassCont(el,clas){
   //ЭФФЕКТ появления фона
   function clickEffect2(div, nameAnimation) {
     let random;
-    
      function interval() {
  for(let i =0; i <div.length;i++){
    //Удаление дизактивности кнопки
@@ -280,18 +279,21 @@ function removeClassCont(el,clas){
               setTimeout(()=>{
                 childSearchOther(arr[index + 1],clickEffect2);
               },500);
-
-          }
-      }
+              if(i == arr.length-2){
+                   next.classList.add("noActiveButton");
+              }
+            }
+        }
       let nextEl = arr[index+1];
       arr[index + 1].classList.add("active");
-      arr[index + 1].classList.remove("shadow");
-    
+      arr[index + 1].classList.remove("shadow"); 
       aciveContent(nextEl);
+      back.classList.remove("noActiveButton");
     } 
-    
     else {
       next.setAttribute("disabled", true);
+      /* next.classList.add("noActiveButton"); */
+    
     }
   }
 
@@ -306,16 +308,20 @@ function removeClassCont(el,clas){
             arr[i].classList.remove("active");
             arr[i].classList.add("shadow");
             childSearchOther(arr[index - 1],clickEffect2);
+            if(i == 1){
+               back.classList.add("noActiveButton");
+            }
          }
       }
       arr[index - 1].classList.add("active");
       arr[index - 1].classList.remove("shadow");
       aciveContent(arr[index-1]);
+      next.classList.remove("noActiveButton");
     } 
+
     else{
       back.setAttribute("disabled", true);
-     
-    }
+      }
   }
 //ПОИСК НУЖНЫХ DIV ПРИ ЛВИЖЕНИИ ВПЕРЕД
   function childSearch(el, func) {
