@@ -22,8 +22,14 @@ window.onload = function() {
     h.classList.add("closeH");
   }, 1500); 
 
-  let widthUser = document.documentElement.clientWidth;
-  let  heightUser = document.documentElement.clientHeight;
+   let widthUser = window.innerWidth
+   || document.documentElement.clientWidth
+   || document.body.clientWidth;
+ 
+  let  heightUser =window.innerHeight
+  || document.documentElement.clientHeight
+  || document.body.clientHeight;
+
   const bg1 = document.querySelector(".bg1");
   const bg2 = document.querySelector(".bg2");
   const bg3 = document.querySelector(".bg3");
@@ -77,8 +83,13 @@ let kolUh = kolU;
   window.addEventListener("resize", resizeHeandler);
 
   function resizeHeandler() {
-   let  widthUser = document.documentElement.clientWidth; 
-   let heightUser = document.documentElement.clientHeight;
+    let widthUser = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+  
+   let  heightUser =window.innerHeight
+   || document.documentElement.clientHeight
+   || document.body.clientHeight;
      changeSizeDiv(widthUser, heightUser, allDivBg);
      changeHeightContainer(heightUser);
      mobWidth(widthUser);
