@@ -17,6 +17,17 @@
     width: 95%;
   }
 
+  body .buttonBlock .next:hover {
+    border-left: 40px solid rgb(255, 255, 255);
+    transform: none;
+    
+  }
+  body .buttonBlock .back:hover {
+    border-right: 40px solid rgb(255, 255, 255);
+    transform: none;
+    
+  }
+
 }
 
 :root{
