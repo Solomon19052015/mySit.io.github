@@ -250,33 +250,32 @@ body .screen .sect_contActive {
 }
 
 button {
+  display: block;
    height: 50px;
    width: 50px;
   cursor: pointer;
   background: rgba(233, 233, 233, 0);
-  border: none;
-  border-radius: 15%;
+   border-radius: 15%;
   -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+  border: 30px solid transparent;
 }
 
 button:active {
   outline: none;
 }
 
-.next {
-  border: 30px solid transparent;
-  border-left: 40px solid rgba(255, 255, 255, 0.479); 
+.buttonBlock button.next {
+ border-left: 40px solid rgba(255, 255, 255, 0.480); 
   -webkit-transform-origin: left; 
           transform-origin: left;
   
 }
 
-.back {
-  border: 30px solid transparent;
-  border-right: 40px solid rgb(255, 255, 255, 0.479);
+.buttonBlock button.back {
   -webkit-transform-origin: right;
           transform-origin: right;
+   border-right: 40px solid rgba(255, 255, 255, 0.480);
 }
 
 .next:hover {
